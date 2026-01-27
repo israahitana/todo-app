@@ -1,3 +1,7 @@
+/* =========================================
+   DEFAULT STYLES (Desktop / Base)
+   ========================================= */
+
 .navbar {
   width: 250px;
   height: 100vh;
@@ -64,4 +68,80 @@
 
 .logout:hover {
   background: #fef2f2;
+}
+
+/* =========================================
+   RESPONSIVE & HAMBURGER STYLES
+   ========================================= */
+
+/* Hamburger Button (Hidden on Desktop) */
+.hamburger-btn {
+  display: none;
+}
+
+/* Overlay (Hidden on Desktop) */
+.sidebar-overlay {
+  display: none;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+
+  /* Show Hamburger */
+  .hamburger-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 200;
+    /* Above everything */
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    color: #374151;
+    transition: background 0.2s;
+  }
+
+  .hamburger-btn:hover {
+    background: #f3f4f6;
+  }
+
+  /* Overlay for closing sidebar */
+  .sidebar-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+    /* Below navbar (100) but above content */
+    backdrop-filter: blur(2px);
+  }
+
+  /* Navbar Mobile Behavior */
+  .navbar {
+    position: fixed;
+    left: -100%;
+    /* Hidden by default */
+    top: 0;
+    height: 100vh;
+    transition: left 0.3s ease-in-out;
+    z-index: 100;
+    width: 280px;
+    /* Slightly wider on mobile for better touch */
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .navbar.open {
+    left: 0;
+    /* Visible when open */
+  }
 }

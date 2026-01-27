@@ -176,7 +176,7 @@
   text-decoration: underline;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .calendar-content {
     margin-left: 0;
     padding: 1rem;
@@ -218,8 +218,8 @@
     gap: 4px;
   }
 }
+
 .task {
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
-

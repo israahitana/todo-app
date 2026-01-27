@@ -1,3 +1,42 @@
+/*responsive*/
+/*mobile*/
+.home-tasks-header,
+.tasks-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/*tablet*/
+@media (min-width: 768px) {
+
+    .home-tasks-header {
+        flex-direction: row;
+    }
+
+    .add-task-wrapper {
+        width: 60%;
+    }
+
+    .stats-wrapper {
+        width: 40%;
+    }
+
+    .tasks-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/*desktop*/
+@media (min-width: 1024px) {
+    .tasks-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+
 /* Main Page Layout */
 .home-tasks-page {
     display: flex;
@@ -139,12 +178,8 @@
 /* RESPONSIVE BREAKPOINTS */
 
 /* Tablet: Maybe keep 3 columns if space permits, or switch to 2/1 */
+/* Tablet: Maybe keep 3 columns if space permits, or switch to 2/1 */
 @media (max-width: 1024px) {
-    .home-tasks-content {
-        margin-left: 0;
-        padding: 1.5rem;
-    }
-
     .tasks-grid {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         /* Switch to wrapping on smaller screens */
@@ -153,6 +188,11 @@
 
 /* Mobile */
 @media (max-width: 768px) {
+    .home-tasks-content {
+        margin-left: 0;
+        padding: 1.5rem;
+    }
+
     .home-tasks-header {
         flex-direction: column;
         gap: 1.5rem;
@@ -173,9 +213,10 @@
         font-size: 1.5rem;
     }
 }
+
 .today-tasks-title {
-  margin: 2rem 0 1rem;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--text-main);
+    margin: 2rem 0 1rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-main);
 }
