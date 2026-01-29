@@ -5,28 +5,33 @@
     background-color: var(--background-color);
 }
 
+.home-tasks-page {
+    overflow-x: hidden;
+}
+
 .home-tasks-content {
     flex: 1;
     margin-left: 260px;
-    /* Default: Sidebar visible */
     padding: 2rem;
-    width: 100%;
     box-sizing: border-box;
     transition: margin-left 0.3s ease;
 }
 
 .tasks-container {
     max-width: 1400px;
-    margin: 0 auto;
+    
 }
 
 /* Page Header */
 .tasks-page-header {
     display: flex;
     justify-content: space-between;
+    padding: 0;
+    position: relative;
     align-items: center;
-    margin-bottom: 2rem;
+    padding-left: 50px;
 }
+
 
 .page-title {
     font-size: 2rem;
@@ -46,29 +51,33 @@
 .home-tasks-header {
     display: flex;
     flex-direction: column;
-    /* Stacked by default (Mobile & Tablet) */
     gap: 1.5rem;
     width: 100%;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
+    align-items: stretch;
 }
 
 .stats-wrapper,
 .add-task-wrapper {
-    width: 100%;
-    /* Full width when stacked */
+    flex: 0 0 440px;
+    max-width: 480px;
 }
 
 /* Ensure contents are responsive inside */
 .stats-wrapper>*,
 .add-task-wrapper>* {
-    width: 100%;
+    padding: 1.5rem;
+    height: 80%;
+}
+
+.add-task-wrapper>* {
+    padding: 1.5rem;
 }
 
 /* TASKS GRID SYSTEM (Mobile First) */
 .tasks-grid {
     display: grid;
     grid-template-columns: 1fr;
-    /* Single column by default */
     gap: 2rem;
     align-items: start;
 }
@@ -125,7 +134,7 @@
 }
 
 .today-tasks-title {
-    margin: 2rem 0 1rem;
+    margin: 0.5rem 0 1rem;
     font-size: 1.2rem;
     font-weight: 700;
     color: var(--text-main);
@@ -135,8 +144,6 @@
 
 /* Tablet (>= 768px) */
 @media (min-width: 768px) {
-
-    /* Grid becomes 2 columns */
     .tasks-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -144,22 +151,18 @@
 
 /* Desktop (>= 1024px) */
 @media (min-width: 1024px) {
-
-    /* Header becomes row (Side-by-side) */
     .home-tasks-header {
         flex-direction: row;
-        justify-content: space-between;
         align-items: stretch;
-        gap: 2rem;
+        gap: 1.5rem;
+        justify-content: center;
     }
 
     .stats-wrapper,
     .add-task-wrapper {
         flex: 1;
-        /* Equal width */
     }
 
-    /* Grid becomes 3 columns */
     .tasks-grid {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -169,7 +172,6 @@
 @media (max-width: 768px) {
     .home-tasks-content {
         margin-left: 0;
-        /* Sidebar hidden */
         padding: 1.5rem;
     }
 
@@ -177,8 +179,17 @@
         font-size: 1.5rem;
     }
 
-    /* Explicitly ensure 1 column grid */
     .tasks-grid {
         grid-template-columns: 1fr;
     }
 }
+@media (max-width: 1024px) {
+    .tasks-container {
+        max-width: 100%;
+        margin: 0;
+    }
+    .home-tasks-content {
+        margin-left: 0;
+    }
+}
+
