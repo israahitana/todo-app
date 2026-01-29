@@ -3,9 +3,6 @@
     display: flex;
     min-height: 100vh;
     background-color: var(--background-color);
-}
-
-.home-tasks-page {
     overflow-x: hidden;
 }
 
@@ -19,19 +16,16 @@
 
 .tasks-container {
     max-width: 1400px;
-    
 }
 
 /* Page Header */
 .tasks-page-header {
     display: flex;
     justify-content: space-between;
-    padding: 0;
-    position: relative;
     align-items: center;
+    position: relative;
     padding-left: 50px;
 }
-
 
 .page-title {
     font-size: 2rem;
@@ -47,7 +41,7 @@
     text-transform: capitalize;
 }
 
-/* Stats + Add Task Header Layout (Mobile First) */
+/* Stats + Add Task Header Layout */
 .home-tasks-header {
     display: flex;
     flex-direction: column;
@@ -59,22 +53,19 @@
 
 .stats-wrapper,
 .add-task-wrapper {
-    flex: 0 0 440px;
-    max-width: 480px;
+    width: 100%;
+    max-width: 100%;
+    flex: auto;
 }
 
 /* Ensure contents are responsive inside */
-.stats-wrapper>*,
-.add-task-wrapper>* {
+.stats-wrapper > *,
+.add-task-wrapper > * {
     padding: 1.5rem;
     height: 80%;
 }
 
-.add-task-wrapper>* {
-    padding: 1.5rem;
-}
-
-/* TASKS GRID SYSTEM (Mobile First) */
+/* TASKS GRID SYSTEM */
 .tasks-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -140,56 +131,68 @@
     color: var(--text-main);
 }
 
-/* RESPONSIVE BREAKPOINTS */
-
-/* Tablet (>= 768px) */
-@media (min-width: 768px) {
-    .tasks-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* Desktop (>= 1024px) */
-@media (min-width: 1024px) {
-    .home-tasks-header {
-        flex-direction: row;
-        align-items: stretch;
-        gap: 1.5rem;
-        justify-content: center;
-    }
-
-    .stats-wrapper,
-    .add-task-wrapper {
-        flex: 1;
-    }
-
-    .tasks-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-/* Mobile Sidebar Adjustment (< 768px) */
-@media (max-width: 768px) {
+/* Mobile (< 750px) */
+@media (max-width: 749px) {
     .home-tasks-content {
         margin-left: 0;
         padding: 1.5rem;
+        width: 100%;
     }
 
-    .page-title {
-        font-size: 1.5rem;
+    .tasks-container {
+        max-width: 100%;
+        margin: 0;
     }
 
     .tasks-grid {
         grid-template-columns: 1fr;
     }
 }
-@media (max-width: 1024px) {
+
+/* Tablet / iPad (750px - 1199px) */
+@media (min-width: 750px) and (max-width: 1199px) {
+    .home-tasks-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
     .tasks-container {
         max-width: 100%;
         margin: 0;
     }
-    .home-tasks-content {
-        margin-left: 0;
+
+    .home-tasks-header {
+        flex-direction: column;
+    }
+
+    .stats-wrapper,
+    .add-task-wrapper {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .tasks-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
+/* Desktop (>= 1200px) */
+@media (min-width: 1200px) {
+    .home-tasks-header {
+        flex-direction: row;
+        align-items: stretch;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+
+    .stats-wrapper,
+    .add-task-wrapper {
+        flex: 0 0 500px;
+        max-width: 500px;
+        width: 100%;
+    }
+
+    .tasks-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
