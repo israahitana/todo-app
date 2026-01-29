@@ -37,18 +37,23 @@
 .links a {
   color: var(--text-secondary);
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 0.95rem;
+  /* Slightly refined size */
   padding: 0.75rem 1rem;
   border-radius: var(--radius-md);
-  transition: all 0.2s;
+  transition: var(--transition-base);
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  margin-bottom: 0.25rem;
+  /* Tiny space between links */
 }
 
 .links a:hover {
   background-color: #f3f4f6;
   color: var(--primary-color);
+  transform: translateX(4px);
+  /* Subtle slide right */
 }
 
 .logout {
@@ -59,7 +64,7 @@
   padding: 0.75rem;
   border-radius: var(--radius-md);
   cursor: pointer;
-  transition: all 0.2s;
+  transition: var(--transition-base);
   font-weight: 600;
   display: flex;
   justify-content: center;
@@ -68,6 +73,7 @@
 
 .logout:hover {
   background: #fef2f2;
+  transform: translateY(-1px);
 }
 
 /* =========================================

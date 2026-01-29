@@ -35,25 +35,29 @@
 .tasks-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    /* Comfortable vertical spacing */
+    gap: 1.5rem;
+    /* Refined spacing */
 }
 
 .empty-message {
     text-align: center;
     color: var(--text-secondary);
     font-size: 1.1rem;
-    margin-top: 2rem;
+    margin-top: 3rem;
+    padding: 2rem;
+    background: #f9fafb;
+    border-radius: var(--radius-md);
+    border: 1px dashed var(--border-color);
 }
 
 /* Minimal Card Design */
 .task-card-minimal {
     background: white;
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
     padding: 1.5rem;
     border: 1px solid var(--border-color);
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: var(--transition-base);
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -156,15 +160,16 @@
     border-radius: var(--radius-sm);
     cursor: pointer;
     color: var(--text-secondary);
-    transition: all 0.2s;
+    transition: var(--transition-base);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .icon-btn:hover {
-    background-color: var(--background-color);
+    background-color: #f3f4f6;
     color: var(--primary-color);
+    transform: translateY(-1px);
 }
 
 .delete-btn:hover {
@@ -187,9 +192,11 @@
         font-size: 1.1rem;
     }
 }
+
 .task-active {
-  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.6),
-              0 8px 20px rgba(99, 102, 241, 0.25);
-  transform: scale(1.03);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.6),
+        0 8px 20px rgba(99, 102, 241, 0.25);
+    transform: scale(1.02);
+    /* Slightly reduced scale */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }

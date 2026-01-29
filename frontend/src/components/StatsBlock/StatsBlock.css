@@ -1,10 +1,16 @@
 .stats-block {
   background-color: var(--card-bg);
-  padding: 1.5rem;
+  padding: 2rem;
+  /* Increased padding */
   border-radius: var(--radius-lg);
   margin-bottom: 2rem;
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm);
   border: 1px solid var(--border-color);
+  transition: var(--transition-base);
+}
+
+.stats-block:hover {
+  box-shadow: var(--shadow-md);
 }
 
 .stats-block h3 {
@@ -18,7 +24,8 @@
 }
 
 .stat {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+  /* Increased spacing */
 }
 
 .stat:last-child {
@@ -29,14 +36,16 @@
   font-size: 0.9rem;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  /* Increased spacing */
   color: var(--text-secondary);
   font-weight: 500;
 }
 
 .bar {
   width: 100%;
-  height: 10px;
+  height: 8px;
+  /* Slightly thinner for elegance */
   background: #f3f4f6;
   border-radius: 999px;
   overflow: hidden;

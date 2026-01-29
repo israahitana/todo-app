@@ -1,42 +1,3 @@
-/*responsive*/
-/*mobile*/
-.home-tasks-header,
-.tasks-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-/*tablet*/
-@media (min-width: 768px) {
-
-    .home-tasks-header {
-        flex-direction: row;
-    }
-
-    .add-task-wrapper {
-        width: 60%;
-    }
-
-    .stats-wrapper {
-        width: 40%;
-    }
-
-    .tasks-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/*desktop*/
-@media (min-width: 1024px) {
-    .tasks-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-
-
 /* Main Page Layout */
 .home-tasks-page {
     display: flex;
@@ -47,7 +8,7 @@
 .home-tasks-content {
     flex: 1;
     margin-left: 260px;
-    /* Matches Sidebar width + spacing */
+    /* Default: Sidebar visible */
     padding: 2rem;
     width: 100%;
     box-sizing: border-box;
@@ -56,7 +17,6 @@
 
 .tasks-container {
     max-width: 1400px;
-    /* Wider max-width for 3 columns */
     margin: 0 auto;
 }
 
@@ -79,28 +39,23 @@
     font-size: 0.9rem;
     color: var(--text-secondary);
     font-weight: 500;
-    text-transform: capitalization;
+    text-transform: capitalize;
 }
 
-/* Stats + Add Task Header Layout */
+/* Stats + Add Task Header Layout (Mobile First) */
 .home-tasks-header {
     display: flex;
-    justify-content: space-between;
-    align-items: stretch;
+    flex-direction: column;
+    /* Stacked by default (Mobile & Tablet) */
+    gap: 1.5rem;
     width: 100%;
-    margin-bottom: 5rem;
-    /* Large increase */
-    gap: 5rem;
-    /* Large increase */
+    margin-bottom: 3rem;
 }
 
-.stats-wrapper {
-    flex: 1;
-}
-
+.stats-wrapper,
 .add-task-wrapper {
-    flex: 1;
-    /* Giving them equal width or adjusting based on preference */
+    width: 100%;
+    /* Full width when stacked */
 }
 
 /* Ensure contents are responsive inside */
@@ -109,27 +64,22 @@
     width: 100%;
 }
 
-/* TASKS GRID SYSTEM */
+/* TASKS GRID SYSTEM (Mobile First) */
 .tasks-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /* Forces 3 columns on the same row */
-    gap: 4rem;
-    /* Large increase */
+    grid-template-columns: 1fr;
+    /* Single column by default */
+    gap: 2rem;
     align-items: start;
-    /* Columns start at the top */
 }
 
 .task-column {
     background-color: transparent;
-    /* Or a light background if desired */
     border-radius: var(--radius-md);
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    /* Increased */
+    gap: 1.5rem;
     min-width: 0;
-    /* Prevents flexbox overflow issues */
 }
 
 /* Column Headers */
@@ -174,49 +124,61 @@
     font-weight: 600;
 }
 
-
-/* RESPONSIVE BREAKPOINTS */
-
-/* Tablet: Maybe keep 3 columns if space permits, or switch to 2/1 */
-/* Tablet: Maybe keep 3 columns if space permits, or switch to 2/1 */
-@media (max-width: 1024px) {
-    .tasks-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        /* Switch to wrapping on smaller screens */
-    }
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-    .home-tasks-content {
-        margin-left: 0;
-        padding: 1.5rem;
-    }
-
-    .home-tasks-header {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-
-    .stats-wrapper,
-    .add-task-wrapper {
-        width: 100%;
-    }
-
-    .tasks-grid {
-        grid-template-columns: 1fr;
-        /* Stack vertically */
-        gap: 2rem;
-    }
-
-    .page-title {
-        font-size: 1.5rem;
-    }
-}
-
 .today-tasks-title {
     margin: 2rem 0 1rem;
     font-size: 1.2rem;
     font-weight: 700;
     color: var(--text-main);
+}
+
+/* RESPONSIVE BREAKPOINTS */
+
+/* Tablet (>= 768px) */
+@media (min-width: 768px) {
+
+    /* Grid becomes 2 columns */
+    .tasks-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop (>= 1024px) */
+@media (min-width: 1024px) {
+
+    /* Header becomes row (Side-by-side) */
+    .home-tasks-header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: stretch;
+        gap: 2rem;
+    }
+
+    .stats-wrapper,
+    .add-task-wrapper {
+        flex: 1;
+        /* Equal width */
+    }
+
+    /* Grid becomes 3 columns */
+    .tasks-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Mobile Sidebar Adjustment (< 768px) */
+@media (max-width: 768px) {
+    .home-tasks-content {
+        margin-left: 0;
+        /* Sidebar hidden */
+        padding: 1.5rem;
+    }
+
+    .page-title {
+        font-size: 1.5rem;
+    }
+
+    /* Explicitly ensure 1 column grid */
+    .tasks-grid {
+        grid-template-columns: 1fr;
+    }
 }

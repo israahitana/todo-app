@@ -1,14 +1,20 @@
 .task-add {
   background-color: var(--card-bg);
-  padding: 1.5rem;
+  padding: 2rem;
+  /* Increased padding */
   border-radius: var(--radius-lg);
   margin-bottom: 2rem;
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm);
   border: 1px solid var(--border-color);
+  transition: var(--transition-base);
+}
+
+.task-add:hover {
+  box-shadow: var(--shadow-md);
 }
 
 .task-add h3 {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--text-main);
@@ -18,14 +24,16 @@
 .task-add-form {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
+  gap: 1.25rem;
+  /* Increased gap */
   align-items: end;
 }
 
 /* Inputs & selects */
 .task-add-form input,
 .task-add-form select {
-  background-color: #f9fafb;
+  background-color: #ffffff;
+  /* Cleaner white */
   color: var(--text-main);
   border: 1px solid var(--border-color);
   padding: 0.75rem;
@@ -34,14 +42,14 @@
   box-sizing: border-box;
   font-family: inherit;
   font-size: 0.95rem;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition: var(--transition-base);
 }
 
 .task-add-form input:focus,
 .task-add-form select:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
 }
 
 /* Button */
@@ -53,14 +61,17 @@
   border-radius: var(--radius-md);
   cursor: pointer;
   font-weight: 600;
-  transition: background-color 0.2s, transform 0.1s;
+  transition: var(--transition-base);
   height: 100%;
+  box-shadow: var(--shadow-sm);
 }
 
 .task-add-form button:hover {
   background-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
 }
 
 .task-add-form button:active {
-  transform: scale(0.98);
+  transform: translateY(0);
 }

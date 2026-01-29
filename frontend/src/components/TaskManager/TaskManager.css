@@ -7,20 +7,23 @@
 
 .empty-state {
   text-align: center;
-  padding: 2rem;
+  padding: 3rem;
+  /* Increased padding */
   background-color: #f9fafb;
   border-radius: var(--radius-md);
   border: 1px dashed var(--border-color);
   color: var(--text-secondary);
+  font-size: 1rem;
 }
 
 .task-card {
   background-color: var(--card-bg);
   border-radius: var(--radius-md);
-  padding: 1rem;
+  padding: 1.25rem;
+  /* Increased padding */
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--border-color);
-  transition: box-shadow 0.2s, transform 0.1s;
+  transition: var(--transition-base);
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -29,28 +32,32 @@
 .task-card:hover {
   box-shadow: var(--shadow-md);
   transform: translateY(-2px);
+  border-color: var(--primary-color);
+  /* Subtle border highlight */
 }
 
 .task-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 0.5rem;
+  gap: 0.75rem;
 }
 
 .task-header h4 {
   margin: 0;
-  font-size: 1rem;
+  font-size: 1.05rem;
+  /* Slightly larger */
   font-weight: 600;
   color: var(--text-main);
   word-break: break-word;
+  line-height: 1.4;
 }
 
 .priority-badge {
   font-size: 0.7rem;
   font-weight: 600;
-  padding: 0.2rem 0.5rem;
-  border-radius: 1rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 2rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   white-space: nowrap;
@@ -72,24 +79,25 @@
 }
 
 .task-desc {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--text-secondary);
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 .task-meta {
   display: flex;
   align-items: center;
   gap: 1rem;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: var(--text-secondary);
+  margin-top: 0.25rem;
 }
 
 .task-date {
   display: flex;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.4rem;
 }
 
 .task-actions {
@@ -97,18 +105,18 @@
   justify-content: flex-end;
   gap: 0.5rem;
   margin-top: auto;
-  padding-top: 0.5rem;
+  padding-top: 0.75rem;
   border-top: 1px solid #f3f4f6;
 }
 
 .icon-btn {
   background: none;
   border: none;
-  padding: 0.4rem;
+  padding: 0.5rem;
   border-radius: var(--radius-sm);
   color: var(--text-secondary);
   cursor: pointer;
-  transition: background-color 0.2s, color 0.2s;
+  transition: var(--transition-base);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -118,6 +126,7 @@
 .icon-btn:hover {
   background-color: #f3f4f6;
   color: var(--primary-color);
+  transform: translateY(-1px);
 }
 
 .delete-btn:hover {
@@ -129,19 +138,20 @@
 .task-edit {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
 .edit-input,
 .edit-textarea,
 select {
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.75rem;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
   font-family: inherit;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   box-sizing: border-box;
+  transition: var(--transition-base);
 }
 
 .edit-input:focus,
@@ -149,46 +159,55 @@ select {
 select:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.1);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
 }
 
 .edit-textarea {
   resize: vertical;
-  min-height: 60px;
+  min-height: 80px;
 }
 
 .edit-selects {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.75rem;
 }
 
 .actions {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.75rem;
   margin-top: 0.5rem;
 }
 
 .save-btn {
   background-color: var(--primary-color);
   color: white;
-  padding: 0.4rem 0.8rem;
-  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
   border-radius: var(--radius-sm);
   border: none;
   cursor: pointer;
+  font-weight: 500;
+  transition: var(--transition-base);
+}
+
+.save-btn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
 }
 
 .cancel-btn {
   background-color: transparent;
   color: var(--text-secondary);
   border: 1px solid var(--border-color);
-  padding: 0.4rem 0.8rem;
-  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
   border-radius: var(--radius-sm);
   cursor: pointer;
   box-shadow: none;
+  transition: var(--transition-base);
 }
 
 .cancel-btn:hover {
   background-color: #f3f4f6;
+  color: var(--text-main);
 }

@@ -1,20 +1,23 @@
 :root {
-  /* Color Palette */
+  /* Color Palette - Refined */
   --primary-color: #6366f1;
   /* Indigo 500 */
   --primary-hover: #4f46e5;
   /* Indigo 600 */
   --secondary-color: #ec4899;
   /* Pink 500 */
-  --background-color: #f3f4f6;
-  /* Gray 100 */
+
+  --background-color: #f9fafb;
+  /* Gray 50 - Lighter, cleaner */
   --card-bg: #ffffff;
-  --text-main: #1f2937;
-  /* Gray 800 */
+
+  --text-main: #111827;
+  /* Gray 900 - Sharper contrast */
   --text-secondary: #6b7280;
   /* Gray 500 */
   --border-color: #e5e7eb;
   /* Gray 200 */
+
   --error-color: #ef4444;
   /* Red 500 */
   --success-color: #10b981;
@@ -25,13 +28,21 @@
   /* Spacing & Radius */
   --radius-sm: 0.375rem;
   --radius-md: 0.5rem;
-  --radius-lg: 1rem;
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --radius-lg: 0.75rem;
+  /* Slightly tighter large radius */
 
-  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  /* Shadows - Softer & Modern */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+  /* Transitions */
+  --transition-base: all 0.2s ease;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  /* Improved readability */
   font-weight: 400;
 
   color-scheme: light;
@@ -91,22 +102,30 @@ button {
   border-radius: var(--radius-md);
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
-  font-size: 1em;
+  font-size: 0.95em;
+  /* Slightly smaller for elegance */
   font-weight: 500;
   font-family: inherit;
   background-color: var(--primary-color);
   color: white;
   cursor: pointer;
-  transition: background-color 0.25s, transform 0.1s;
+  transition: var(--transition-base);
   box-shadow: var(--shadow-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 button:hover {
   background-color: var(--primary-hover);
+  transform: translateY(-1px);
+  /* Subtle lift */
+  box-shadow: var(--shadow-md);
 }
 
 button:active {
-  transform: scale(0.98);
+  transform: translateY(0);
 }
 
 button:focus,
@@ -119,8 +138,15 @@ button:focus-visible {
   background-color: var(--card-bg);
   border-radius: var(--radius-lg);
   padding: 2rem;
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm);
+  /* Start with small shadow */
   border: 1px solid var(--border-color);
+  transition: var(--transition-base);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  /* Lift on hover */
 }
 
 .input-group {
@@ -128,24 +154,28 @@ button:focus-visible {
   flex-direction: column;
   gap: 0.5rem;
   text-align: left;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  /* Increased spacing */
 }
 
 .input-field {
   padding: 0.75rem 1rem;
   border-radius: var(--radius-md);
   border: 1px solid var(--border-color);
-  background-color: #f9fafb;
-  font-size: 1rem;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  background-color: #ffffff;
+  /* Cleaner white */
+  font-size: 0.95rem;
+  transition: var(--transition-base);
   width: 100%;
   box-sizing: border-box;
+  color: var(--text-main);
 }
 
 .input-field:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+  /* Softer ring */
 }
 
 .error-msg {
