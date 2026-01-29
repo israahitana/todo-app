@@ -29,6 +29,7 @@
     color: var(--text-main);
     margin-bottom: 2rem;
     text-align: center;
+    align-items: center;
 }
 
 /* Card Wrapper */
@@ -190,6 +191,23 @@
 
     .task-title {
         font-size: 1.1rem;
+    }
+}
+
+/* Tablet & iPad Center Fix */
+@media (max-width: 1199px) {
+
+    .task-page-content {
+        margin-left: 0;
+        padding: 1.5rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .tasks-list-container {
+        width: 100%;
+        max-width: 700px;
+        margin: 0 auto;
     }
 }
 

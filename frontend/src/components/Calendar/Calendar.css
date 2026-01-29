@@ -10,6 +10,7 @@
   margin-left: 260px;
   transition: margin-left 0.3s ease;
   max-width: 1600px;
+  width: 100%;
 }
 
 .calendar-container {
@@ -184,19 +185,22 @@
   text-decoration: underline;
 }
 
-@media (max-width: 768px) {
+/* Mobile */
+@media (max-width: 749px) {
   .calendar-content {
     margin-left: 0;
     padding: 1rem;
     padding-top: 80px;
   }
 
-  .current-month {
-    font-size: 1.2rem;
+  .week-header {
+    grid-template-columns: repeat(2, 1fr);
+    font-size: 0.7rem;
   }
 
-  .week-header {
-    font-size: 0.75rem;
+  .month-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
   }
 
   .date-card {
@@ -209,13 +213,24 @@
     font-size: 0.75rem;
     text-align: center;
   }
+}
 
-  .task {
-    font-size: 0.65rem;
-    padding: 2px 4px;
+/* Tablet & iPad */
+@media (min-width: 750px) and (max-width: 1199px) {
+  .calendar-content {
+    margin-left: 0;
+    padding: 1.5rem;
+  }
+
+  .week-header {
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .month-grid {
-    gap: 4px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .calendar-container {
+    height: auto;
   }
 }
