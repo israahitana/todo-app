@@ -42,7 +42,7 @@
 
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   line-height: 1.6;
-  /* Improved readability */
+  
   font-weight: 400;
 
   color-scheme: light;
@@ -63,10 +63,10 @@ body {
 
 #root {
   width: 100%;
-  /* max-width: 1280px;  Removed to allow full width */
+
   margin: 0;
   padding: 0;
-  /* text-align: center; Removed default center alignment */
+  
 }
 
 h1,
@@ -100,7 +100,7 @@ button {
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 0.95em;
-  /* Slightly smaller for elegance */
+
   font-weight: 500;
   font-family: inherit;
   background-color: var(--primary-color);
@@ -117,7 +117,7 @@ button {
 button:hover {
   background-color: var(--primary-hover);
   transform: translateY(-1px);
-  /* Subtle lift */
+  
   box-shadow: var(--shadow-md);
 }
 
@@ -130,20 +130,20 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-/* Utility Classes */
+
 .card {
   background-color: var(--card-bg);
   border-radius: var(--radius-lg);
   padding: 2rem;
   box-shadow: var(--shadow-sm);
-  /* Start with small shadow */
+  
   border: 1px solid var(--border-color);
   transition: var(--transition-base);
 }
 
 .card:hover {
   box-shadow: var(--shadow-md);
-  /* Lift on hover */
+  
 }
 
 .input-group {
@@ -152,7 +152,7 @@ button:focus-visible {
   gap: 0.5rem;
   text-align: left;
   margin-bottom: 1.25rem;
-  /* Increased spacing */
+  
 }
 
 .input-field {
@@ -160,7 +160,7 @@ button:focus-visible {
   border-radius: var(--radius-md);
   border: 1px solid var(--border-color);
   background-color: #ffffff;
-  /* Cleaner white */
+  
   font-size: 0.95rem;
   transition: var(--transition-base);
   width: 100%;

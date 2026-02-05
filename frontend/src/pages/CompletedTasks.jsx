@@ -32,7 +32,7 @@ function CompletedTasks() {
     }
   };
 
-  /* --- DELETE LOGIC --- */
+  /* --- DELETE  --- */
   const openDeleteConfirm = (taskId) => {
     setTaskToDelete(taskId);
     setShowConfirm(true);
@@ -54,7 +54,7 @@ function CompletedTasks() {
     setTaskToDelete(null);
   };
 
-  /* --- EDIT LOGIC --- */
+  /* --- EDIT --- */
   const handleEditClick = (task) => {
     setEditingTaskId(task._id);
     setEditTitle(task.title);

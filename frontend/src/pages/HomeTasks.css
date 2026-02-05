@@ -58,7 +58,6 @@
     flex: auto;
 }
 
-/* Ensure contents are responsive inside */
 .stats-wrapper > *,
 .add-task-wrapper > * {
     padding: 1.5rem;
@@ -176,7 +175,7 @@
     }
 }
 
-/* Desktop (>= 1200px) */
+/* Desktop*/
 @media (min-width: 1200px) {
     .home-tasks-header {
         flex-direction: row;

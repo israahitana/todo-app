@@ -8,7 +8,7 @@ function StatsBlock({ tasks }) {
   const inProgress = tasks.filter(t => t.status === "En cours").length;
   const todo = tasks.filter(t => t.status === "À faire").length;
 
-  // percentages
+  //  calcul percentages
   const donePct = total ? Math.round((done / total) * 100) : 0;
   const progressPct = total ? Math.round((inProgress / total) * 100) : 0;
   const todoPct = total ? Math.round((todo / total) * 100) : 0;

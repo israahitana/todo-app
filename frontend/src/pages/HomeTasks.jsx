@@ -39,10 +39,10 @@ function HomeTasks() {
     } catch (error) {
       console.log("Erreur lors du chargement des tâches", error);
     }
-  };
+  };  
 
   /* =======================
-     TODAY FILTER (AJOUT SEULEMENT)
+     TODAY FILTER 
   ======================= */
 
   const isToday = (dateString) => {
@@ -114,9 +114,6 @@ function HomeTasks() {
     setTaskToDelete(null);
   };
 
-  /* =======================
-     RENDER
-  ======================= */
 
   return (
     <div className="home-tasks-page">

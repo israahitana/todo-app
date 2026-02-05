@@ -9,7 +9,6 @@ function Calendar() {
   useEffect(() => {
     getTasks()
       .then((res) => {
-        // حسب service متاعك
         setTasks(res.data || res);
       })
       .catch((err) => {

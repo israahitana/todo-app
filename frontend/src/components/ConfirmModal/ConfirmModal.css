@@ -57,7 +57,7 @@
   transform: scale(0.95);
 }
 
-/* Oui */
+/* Bouton "Oui"  */
 .modal-actions .confirm {
   background-color: var(--error-color);
   color: white;

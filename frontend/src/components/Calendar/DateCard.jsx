@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 function DateCard({ date, tasks = [] }) {
   const [showAll, setShowAll] = useState(false);
   const [activeTaskId, setActiveTaskId] = useState(null);
-  const navigate = useNavigate();
+  const navigate = useNavigate(); //pour la navigation entre les pages
 
   const label = date.toLocaleDateString("fr-FR", {
     weekday: "short",
@@ -12,26 +12,28 @@ function DateCard({ date, tasks = [] }) {
     month: "short",
   });
 
+  // taches visible 2 sinon visible tous 
   const visibleTasks = showAll ? tasks : tasks.slice(0, 2);
 
+  //pour chaque status route 
   const statusRouteMap = {
     "À faire": "/a-faire",
     "En cours": "/en-cours",
     "Terminée": "/completed",
   };
-
+  ////////
   const handleTaskClick = (task) => {
     const taskId = task._id || task.id;
     const route = statusRouteMap[task.status];
     if (!route) return;
 
-    // 👉 effet visuel immédiat
+    // effet visuel immédiat
     setActiveTaskId(taskId);
 
-    // 👉 stocker l'id pour la page suivante (solution simple)
+    // stocker l'id pour la page suivante
     sessionStorage.setItem("highlightTaskId", taskId);
 
-    // 👉 navigation après un petit délai
+    // navigation après un petit délai
     setTimeout(() => {
       navigate(route);
     }, 400);

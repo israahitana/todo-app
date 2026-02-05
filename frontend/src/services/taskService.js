@@ -4,7 +4,7 @@ const API_URL = "http://localhost:5000/api/tasks";
 
 
 const getAuthHeader = () => {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("token");// Récupère le token du localStorage 
   return {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -19,7 +19,7 @@ export const getTasks = async () => {
 };
 
 // ADD task
-export const addTask = async (taskData) => {
+export const addTask = async (taskData) => { //recoit les données de la tâche
   const response = await axios.post(API_URL, taskData, getAuthHeader());
   return response.data;
 };

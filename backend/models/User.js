@@ -14,4 +14,4 @@ const userSchema=new mongoose.Schema({//creation schema mongoose
     timestamps: true, 
   }
 );
-module.exports=mongoose.model("User",userSchema);//creation du modele User avec le schema userSchema
+module.exports=mongoose.model("User",userSchema);//creation du modele User avec le schema userSchema 

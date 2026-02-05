@@ -12,18 +12,18 @@ function TaskAdd({ onAdd }) {
   const [dueDate, setDueDate] = useState("");
 
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (e) => { 
+    e.preventDefault(); //no refresh 
     if (!title) return;
 
-    onAdd({ //data de formulaire 
+    onAdd({ //data de formulaire
       title,
       description,
       priority,
       status,
       dueDate,
     });
-
+    //apres modification reset form
     setTitle("");
     setDescription("");
     setPriority("Moyenne");

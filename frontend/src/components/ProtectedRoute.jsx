@@ -7,7 +7,7 @@ function ProtectedRoute({ children }) {
     return <Navigate to="/login" />;//si pas de token, rediriger vers login
   }
 
-  return children;//si token existe, render children(page protégée "homeTasks")
+  return children;//si token existe , render children(page protégée "homeTasks")
 }
 
 export default ProtectedRoute;

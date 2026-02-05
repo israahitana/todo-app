@@ -21,14 +21,15 @@ function CalendarMonthView({ tasks = [] }) {
 
   const cells = [];
 
-  for (let i = 0; i < startDay; i++) {
+  for (let i = 0; i < startDay; i++) { //vide si le mois ne commence pas un lundi
     cells.push(null);
   }
 
-  for (let d = 1; d <= daysInMonth; d++) {
+  for (let d = 1; d <= daysInMonth; d++) {// remplir les jours du mois
     cells.push(new Date(year, month, d));
   }
 
+  //navigation mois/année
   const prevMonth = () =>
     setCurrentDate(new Date(year, month - 1, 1));
 
@@ -43,7 +44,7 @@ function CalendarMonthView({ tasks = [] }) {
 
   return (
     <div className="calendar-container">
-      {/* Navigation */}
+      {/* Navigation  */}
       <div className="month-nav">
         <div className="nav-group">
           <button onClick={prevYear}>«</button>

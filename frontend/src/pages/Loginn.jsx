@@ -6,6 +6,8 @@ function Loginn() {
   const [email, setEmail] = useState("");//state for email
   const [password, setPassword] = useState("");//state for password
   const [error, setError] = useState("");//state for error message
+  const [showPassword, setShowPassword] = useState(false);
+
 
   const navigate = useNavigate();//function to navigate programmatically
 
@@ -65,22 +67,81 @@ function Loginn() {
           </div>
 
           <div className="input-group">
-            <label style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-secondary)' }}>Mot de passe</label>
-            <div style={{ position: 'relative' }}>
-              <div style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-secondary)' }}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            <label style={{ fontSize: "0.9rem", fontWeight: 600, color: "var(--text-secondary)" }}>
+              Mot de passe
+            </label>
+
+            <div style={{ position: "relative" }}>
+              {/* lock icon */}
+              <div
+                style={{
+                  position: "absolute",
+                  left: "12px",
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  color: "var(--text-secondary)",
+                  pointerEvents: "none",
+                }}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                </svg>
               </div>
+
+              {/* password input */}
               <input
                 className="input-field"
-                style={{ paddingLeft: '2.5rem' }}
-                type="password"
+                style={{ paddingLeft: "2.5rem", paddingRight: "2.5rem" }}
+                type={showPassword ? "text" : "password"}
                 placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
+
+              {/* eye / eye-off */}
+              <span
+                onClick={() => setShowPassword(!showPassword)}
+                style={{
+                  position: "absolute",
+                  right: "12px",
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  cursor: "pointer",
+                  color: "var(--text-secondary)",
+                }}
+                title={showPassword ? "Masquer le mot de passe" : "Afficher le mot de passe"}
+              >
+                {showPassword ? (
+                  /* eye-off */
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M1 1l22 22" />
+                    <path d="M17.94 17.94A10.94 10.94 0 0 1 12 20
+                            c-5.05 0-9.29-3.15-11-8
+                            1.21-3.1 3.77-5.54 6.94-6.64" />
+                    <path d="M9.9 4.24A10.94 10.94 0 0 1 12 4
+                            c5.05 0 9.29 3.15 11 8
+                            -0.66 1.69-1.7 3.2-3.06 4.39" />
+                  </svg>
+                ) : (
+                  /* eye */
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                )}
+              </span>
             </div>
           </div>
+
+
 
           <button type="submit" style={{ width: '100%', marginTop: '1rem', padding: '0.8rem' }}>
             Se connecter

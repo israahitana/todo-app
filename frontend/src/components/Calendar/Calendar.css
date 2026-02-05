@@ -185,6 +185,7 @@
   text-decoration: underline;
 }
 
+/* Responsive  */
 /* Mobile */
 @media (max-width: 749px) {
   .calendar-content {

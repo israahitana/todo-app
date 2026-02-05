@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";//to navigate and link between pages
 import { useState } from "react";
 import "./Navbar.css";
 
@@ -6,6 +6,7 @@ function Navbar() {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
+  //logout
   const handleLogout = () => {
     localStorage.removeItem("token");
     navigate("/login");

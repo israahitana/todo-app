@@ -3,10 +3,6 @@ import { getTasks, updateTask, deleteTask } from "../services/taskService";
 import Navbar from "../components/NavBar/Navbar";
 import ConfirmModal from "../components/ConfirmModal/ConfirmModal";
 import "./TaskPages.css";
-// Reuse TaskManager CSS for edit form styles if needed, or define in TaskPages.css. 
-// For now, we'll assume basic form styles are needed, which I'll add inline or reuse if possible. 
-// Better: I will use the class names from TaskManager for the edit form to reuse styles if they are global, 
-// or I'll quickly add the edit form styles to TaskPages.css in a next step.
 
 function TasksAFaire() {
   const [tasks, setTasks] = useState([]);
@@ -39,7 +35,7 @@ function TasksAFaire() {
     }
   };
 
-  /* --- DELETE LOGIC --- */
+  /* --- DELETE  --- */
   const openDeleteConfirm = (taskId) => {
     setTaskToDelete(taskId);
     setShowConfirm(true);
@@ -61,7 +57,7 @@ function TasksAFaire() {
     setTaskToDelete(null);
   };
 
-  /* --- EDIT LOGIC --- */
+  /* --- EDIT --- */
   const handleEditClick = (task) => {
     setEditingTaskId(task._id);
     setEditTitle(task.title);
@@ -99,7 +95,8 @@ function TasksAFaire() {
     setEditingTaskId(null);
   };
 
-  const storedId = sessionStorage.getItem("highlightTaskId");
+  useEffect(() => {
+    const storedId = sessionStorage.getItem("highlightTaskId");
     if (storedId) {
       setHighlightTaskId(storedId);
       sessionStorage.removeItem("highlightTaskId");
@@ -107,10 +104,7 @@ function TasksAFaire() {
       setTimeout(() => {
         const el = taskRefs.current[storedId];
         if (el) {
-          el.scrollIntoView({
-            behavior: "smooth",
-            block: "center",
-          });
+          el.scrollIntoView({ behavior: "smooth", block: "center" });
         }
       }, 100);
 
@@ -118,6 +112,7 @@ function TasksAFaire() {
         setHighlightTaskId(null);
       }, 600);
     }
+  }, []);
 
 
 

@@ -3,7 +3,7 @@ import "./ConfirmModal.css";
 /*
   Popup de confirmation générique
   - Oui  → confirmer l'action
-  - Non  → annuler
+  - Non  → annuler l'action
 */
 function ConfirmModal({ show, message, onConfirm, onCancel }) {
   if (!show) return null;

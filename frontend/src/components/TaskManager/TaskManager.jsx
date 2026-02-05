@@ -58,7 +58,7 @@ function TaskManager({ tasks, onUpdate, onDelete, hideHeader = false }) {
       {tasks.map((task) => (
         <div key={task._id} className="task-card">
           {editingTaskId === task._id ? (
-            /* ===== MODE ÉDITION ===== */
+            /* ===== EDIT ===== */
             <div className="task-edit">
               <input
                 className="edit-input"
@@ -115,7 +115,7 @@ function TaskManager({ tasks, onUpdate, onDelete, hideHeader = false }) {
               </div>
             </div>
           ) : (
-            /* ===== MODE AFFICHAGE ===== */
+            /* ===== AFFICHAGE ===== */
             <>
               <div className="task-header">
                 <h4>{task.title}</h4>
